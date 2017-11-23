@@ -1,3 +1,4 @@
+//GET INPUTS
 if (custom_keys_set == false)
 {
 	key_left = keyboard_check(vk_left)
@@ -51,6 +52,7 @@ x += hsp;
 if (place_meeting(x, y + 1, obj_wall) && key_jump)
 {
 	vsp += jump_speed; //normal jumping
+	inAir = false;
 }
 else 
 {
@@ -58,6 +60,7 @@ else
 	{
 		vsp = jump_speed_min //fine jumping
 	}
+	inAir = false;
 }
 
 //Vertical Collision Checking
@@ -72,13 +75,21 @@ if (place_meeting(x, y + vsp, obj_wall))
 y += vsp;
 //------------------------------------------------------------------------------
 
-if ( collision_rectangle( x, y - 2, x + 12, y, obj_player, true, false ))
+if ( collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false ))
 {
-	idd = collision_rectangle( x, y - 2, x + 12, y, obj_player, true, false );
+	idd = collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false );
 	if ((y - idd.y) <= 11)
 	{
+		
+		//idd.simulated_jump_active = true
+		//idd.alarm[0] = 60
+		//while (idd.simulated_jump_active == true)
+		//{
+			idd.y -= 10
+		//}
 		instance_create_layer(x + 6, y + 5, 0, obj_death_explosion);
 		obj_system.player_alive_array[player_no - 1] = false;
 		instance_destroy()
 	}
+	
 }
