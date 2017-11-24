@@ -1,11 +1,15 @@
+game_pad_min_threshold = 0.65
+
 //default moving variables
 hsp = 0
 vsp = 0
 grv = 0.15
 move_speed = 2;
-jump_speed = -4;
+jump_speed = -3;
 jump_speed_min = -1.5
-simulated_jump_active = false;
+//second_jump_speed = -(abs(jump_speed) - abs(vsp))
+second_jump_speed = -10
+//simulated_jump_active = false;
 move_friction = 0.1
 move_direction = 0
 
@@ -14,13 +18,8 @@ player_no = 0;
 idd	  = 0;
 lives = 3;
 
+jumps_available = 2;
+
 inAir = true
 
-//Character specifics variables
-
-//player 1 RED
-jumps_left = 2;
-//player 2 BLUE
-//player 3 YELLOW
-//player 4 ORANGE
-
+lost_live = false;
