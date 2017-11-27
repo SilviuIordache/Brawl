@@ -2,7 +2,7 @@
 // You can write your code in this editor
 if (instance_exists(obj_player))
 {
-	
+	/*
 	draw_text(x + 40, y, "hsp: " + string(obj_player.hsp));
 	draw_text(x + 40, y + 16, "vsp: " + string(obj_player.vsp));
 	draw_text(x + 40, y + 32, "move_direction: " + string(obj_player.move_direction));
@@ -10,7 +10,7 @@ if (instance_exists(obj_player))
 	draw_text(x + 40, y + 64, "p2_count: " + string(instance_number(obj_player_2)));
 	draw_text(x + 40, y + 80, "p3_count: " + string(instance_number(obj_player_3)));
 	draw_text(x + 40, y + 96, "p4_count: " + string(instance_number(obj_player_4)));
-	
+	*/
 	//draw_text(x, y + 112, "p1_in_Air: " + string(string(obj_player_1.inAir)));
 	
 	//DRAW PLAYER LIVES
@@ -24,23 +24,29 @@ if (instance_exists(obj_player))
 		{
 			//RED PLAYER LIVES DRAW
 			if (obj.player_no == 1)
-				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_red, 0, x - 16, y + j * 48, 8, 8, 0, c_white, 1)
-		
+			{
+					draw_sprite_ext(spr_lives_red, 0, x - 76, y, 8, 8, 0, c_white, 1)
+					draw_text_ext_transformed(x - 73, y + 40, "x" + string(player_lives_array[obj.player_no - 1]), 10, 100, 2, 2, 0)
+			}
 			//BLUE PLAYER LIVES DRAW
 			if (obj.player_no == 2)
-				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_blue, 0, x + 1720, y + j * 48, 8, 8, 0, c_white, 1)
-					
+			{
+					draw_sprite_ext(spr_lives_blue, 0, x + 1785, y, 8, 8, 0, c_white, 1)
+					draw_text_ext_transformed(x + 1785, y + 40, "x" + string(player_lives_array[obj.player_no - 1]), 10, 100, 2, 2, 0)
+			}	
 			//GREEN PLAYER LIVES DRAW
 			if (obj.player_no == 3)
-				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_green, 0, x - 16, y + 450 + j * 48, 8, 8, 0, c_white, 1)
+			{
+					draw_sprite_ext(spr_lives_green, 0, x - 76, y + 700 , 8, 8, 0, c_white, 1)
+					draw_text_ext_transformed(x - 73, y + 750, "x" + string(player_lives_array[obj.player_no - 1]), 10, 100, 2, 2, 0)
+			}
 					
 			//YELLOW PLAYER LIVES DRAW
 			if (obj.player_no == 4)
-				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_yellow, 0, x + 1720, y + 450 + j * 48, 8, 8, 0, c_white, 1)
+			{
+					draw_sprite_ext(spr_lives_yellow, 0, x + 1785, y + 700 , 8, 8, 0, c_white, 1)
+					draw_text_ext_transformed(x + 1785, y + 750, "x" + string(player_lives_array[obj.player_no - 1]), 10, 100, 2, 2, 0)
+			}
 		}
 	}
 	

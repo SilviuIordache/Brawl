@@ -3,6 +3,14 @@
 var i = 0;
 var j = 0;
 
+if (instance_number(obj_extra_life) < 2 && can_spawn_extra_lives == true)
+{
+	inst = instance_find(obj_extra_life_spawner, irandom(instance_number(obj_extra_life_spawner) - 1));
+	instance_create_layer(inst.x, inst.y, 0, obj_extra_life);
+	can_spawn_extra_lives = false
+	alarm[2] = time_between_extra_lives
+}
+
 if ((teams_count * player_per_team_count) == instance_number(obj_player))
 {
 	AllPlayersSpawned = true
@@ -13,8 +21,12 @@ if (initial_spawning_done == false && SpawnersGotTimeToSpawn == true)
 {
 	for (i = 0; i < teams_count; i++)
 	{
-		//INITIALIZE HATS
+		//INITIALIZE RANDOM HATS
 		player_hats[i] = irandom(number_of_hats - 1)
+		
+		//INITIALIZE RANDOM JUMP SOUNDS
+		player_jump_sounds[i] = irandom(3) + 1
+		
 		var obj = asset_get_index("obj_player_" + string(i + 1));
 		while (instance_number(obj) < player_per_team_count )
 		{
@@ -37,7 +49,7 @@ for (i= 0; i < teams_count; i++)
 	{
 		var obj = asset_get_index("obj_player_" + string(i + 1));
 		inst = instance_find(obj_player_spawner, irandom(instance_number(obj_player_spawner) - 1));
-		if (inst.available = true) && distance_to_object( instance_nearest(inst.x, inst.y, obj_player) ) > 50 
+		if (inst.available = true) && distance_to_object( instance_nearest(inst.x, inst.y, obj_player) ) > 40
 		{
 			instance_create_layer(inst.x, inst.y, 0, obj);
 			inst.available = false
