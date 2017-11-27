@@ -107,7 +107,9 @@ y += vsp;
 
 //------------------------------------------------------------------------------
 
-//COLLIDING WITH OPPONENTS
+//COLLIDING WITH OPPONENTS 
+
+//Opponent jumps on your head
 if ( collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false ))
 {
 	idd = collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false );
@@ -129,5 +131,4 @@ if ( collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false ))
 			instance_destroy()
 		}
 	}
-	
 }

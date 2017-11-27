@@ -175,6 +175,14 @@
             }
         },
         {
+            "Key": "5121cbeb-4716-4794-9b59-66a2bfa45fca",
+            "Value": {
+                "id": "83da16cf-ef0e-463e-9455-95877d93e6a8",
+                "resourcePath": "sprites\\spr_background\\spr_background.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "584ad112-6548-4e9f-b118-4fa36e8eb686",
             "Value": {
                 "id": "410a1086-2592-407e-b39b-6db87566f2b7",
@@ -226,7 +234,7 @@
             "Key": "611fdf80-f74c-49f9-9b49-0b75e2f8c1c5",
             "Value": {
                 "id": "de8c8694-998c-4d69-bd96-315519a7aa90",
-                "resourcePath": "sprites\\spr_hat_10\\spr_hat_10.yy",
+                "resourcePath": "sprites\\spr_hat_0\\spr_hat_0.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -244,6 +252,14 @@
                 "id": "69a1a465-4bab-453a-a8c6-05440f326d98",
                 "resourcePath": "views\\63c6ad77-8119-4b93-882f-fd30f7d1793f.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "678dafaa-a574-4024-8aff-f3d1093a20a5",
+            "Value": {
+                "id": "c0a8f700-35a5-4023-a011-78c0404ed42c",
+                "resourcePath": "rooms\\room_02\\room_02.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -351,6 +367,14 @@
             }
         },
         {
+            "Key": "9efee736-374f-4c5c-990a-3cd439cd7119",
+            "Value": {
+                "id": "38e395f9-d129-4a0d-9243-d5c354451062",
+                "resourcePath": "sprites\\spr_brick_16_grass\\spr_brick_16_grass.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a6792640-2841-46e0-9b07-e1fbafb4f582",
             "Value": {
                 "id": "4c01ca05-d0ef-48e3-a510-3abf965ba460",
@@ -370,7 +394,7 @@
             "Key": "af021456-6adc-432c-88c7-b66a667d7683",
             "Value": {
                 "id": "d8dea62c-b3ea-48d7-b1e8-6365660348a6",
-                "resourcePath": "rooms\\room0\\room0.yy",
+                "resourcePath": "rooms\\room_01\\room_01.yy",
                 "resourceType": "GMRoom"
             }
         },

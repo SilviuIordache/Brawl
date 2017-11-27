@@ -2,13 +2,15 @@
 // You can write your code in this editor
 if (instance_exists(obj_player))
 {
-	draw_text(x, y, "hsp: " + string(obj_player.hsp));
-	draw_text(x, y + 16, "vsp: " + string(obj_player.vsp));
-	draw_text(x, y + 32, "move_direction: " + string(obj_player.move_direction));
-	draw_text(x, y + 48, "p1_count: " + string(instance_number(obj_player_1)));
-	draw_text(x, y + 64, "p2_count: " + string(instance_number(obj_player_2)));
-	draw_text(x, y + 80, "p1_lives: " + string(player_lives_array[0]));
-	draw_text(x, y + 96, "p2_lives: " + string(player_lives_array[1]));
+	
+	draw_text(x + 40, y, "hsp: " + string(obj_player.hsp));
+	draw_text(x + 40, y + 16, "vsp: " + string(obj_player.vsp));
+	draw_text(x + 40, y + 32, "move_direction: " + string(obj_player.move_direction));
+	draw_text(x + 40, y + 48, "p1_count: " + string(instance_number(obj_player_1)));
+	draw_text(x + 40, y + 64, "p2_count: " + string(instance_number(obj_player_2)));
+	draw_text(x + 40, y + 80, "p3_count: " + string(instance_number(obj_player_3)));
+	draw_text(x + 40, y + 96, "p4_count: " + string(instance_number(obj_player_4)));
+	
 	//draw_text(x, y + 112, "p1_in_Air: " + string(string(obj_player_1.inAir)));
 	
 	//DRAW PLAYER LIVES
@@ -33,12 +35,12 @@ if (instance_exists(obj_player))
 			//GREEN PLAYER LIVES DRAW
 			if (obj.player_no == 3)
 				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_green, 0, x - 16, y + 650 + j * 48, 8, 8, 0, c_white, 1)
+					draw_sprite_ext(spr_lives_green, 0, x - 16, y + 450 + j * 48, 8, 8, 0, c_white, 1)
 					
 			//YELLOW PLAYER LIVES DRAW
 			if (obj.player_no == 4)
 				for (j = 0; j < player_lives_array[i]; j++)
-					draw_sprite_ext(spr_lives_yellow, 0, x + 1720, y + 650 + j * 48, 8, 8, 0, c_white, 1)
+					draw_sprite_ext(spr_lives_yellow, 0, x + 1720, y + 450 + j * 48, 8, 8, 0, c_white, 1)
 		}
 	}
 	
