@@ -20,6 +20,10 @@ lives = 3;
 
 jumps_available = 2;
 
+moving_stopped = true
+not_moved_timer = 0;
+not_moved_limit_destroy = 60 * 6
+
 inAir = true
 
 lost_live = false;

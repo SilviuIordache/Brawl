@@ -10,6 +10,35 @@ else
 {
 	if (player_no == 1)
 	{
+		key_left = gamepad_axis_value(0, gp_axislh) < -game_pad_min_threshold
+		key_right = gamepad_axis_value(0, gp_axislh) > game_pad_min_threshold
+		key_jump = gamepad_button_check_pressed(0, gp_face1);
+		key_jump_rel = gamepad_button_check_released(0, gp_face1);
+	}
+	if (player_no == 2)
+	{
+		key_left = gamepad_axis_value(1, gp_axislh) < -game_pad_min_threshold
+		key_right = gamepad_axis_value(1, gp_axislh) > game_pad_min_threshold
+		key_jump = gamepad_button_check_pressed(1, gp_face1);
+		key_jump_rel = gamepad_button_check_released(1, gp_face1);
+	}
+	if (player_no == 3)
+	{
+		key_left = gamepad_axis_value(2, gp_axislh) < -game_pad_min_threshold
+		key_right = gamepad_axis_value(2, gp_axislh) > game_pad_min_threshold
+		key_jump = gamepad_button_check_pressed(2, gp_face1);
+		key_jump_rel = gamepad_button_check_released(2, gp_face1);
+	}
+	if (player_no == 4)
+	{
+		key_left = gamepad_axis_value(3, gp_axislh) < -game_pad_min_threshold
+		key_right = gamepad_axis_value(3, gp_axislh) > game_pad_min_threshold
+		key_jump = gamepad_button_check_pressed(3, gp_face1);
+		key_jump_rel = gamepad_button_check_released(3, gp_face1);
+	}
+	/*
+	if (player_no == 1)
+	{
 		key_left = keyboard_check(vk_left)
 		key_right = keyboard_check(vk_right)
 		key_jump = keyboard_check_pressed(vk_up)
@@ -22,20 +51,7 @@ else
 		key_jump = keyboard_check_pressed(ord("W"))
 		key_jump_rel = keyboard_check_released(ord("W"))
 	}
-	if (player_no == 3)
-	{
-		key_left = gamepad_axis_value(0, gp_axislh) < -game_pad_min_threshold
-		key_right = gamepad_axis_value(0, gp_axislh) > game_pad_min_threshold
-		key_jump = gamepad_button_check_pressed(0, gp_face1);
-		key_jump_rel = gamepad_button_check_released(0, gp_face1);
-	}
-	if (player_no == 4)
-	{
-		key_left = gamepad_axis_value(1, gp_axislh) < -game_pad_min_threshold
-		key_right = gamepad_axis_value(1, gp_axislh) > game_pad_min_threshold
-		key_jump = gamepad_button_check_pressed(1, gp_face1);
-		key_jump_rel = gamepad_button_check_released(1, gp_face1);
-	}
+	*/
 	
 }
 //Calculate Movement
@@ -73,20 +89,20 @@ if (place_meeting(x, y + 1, obj_wall))
 	if(key_jump) //if you pressed the jump key
 	{
 		vsp += jump_speed; //normal jumping
-		audio_play_sound( asset_get_index("snd_jump_" + string(obj_system.player_jump_sounds[player_no])), 1, 0) 
+		audio_play_sound( snd_jump_1, 1, 0) 
 		inAir = true //you are now in air
 		jumps_available -= 1; //decrement double jump counter
 	}
 	else if (key_jump_rel && (vsp < jump_speed_min)) //fine jumping
 	{
 		vsp = jump_speed_min
-		audio_play_sound( asset_get_index("snd_jump_" + string(obj_system.player_jump_sounds[player_no])), 1, 0) 
+		audio_play_sound( snd_jump_1, 1, 0) 
 	}
 }//if in air
 else if ( (key_jump) && jumps_available > 0 ) //check for double-jump possibility
 {
 	vsp += second_jump_speed; 
-	audio_play_sound( asset_get_index("snd_jump_" + string(obj_system.player_jump_sounds[player_no])), 1, 0) 
+	audio_play_sound( snd_jump_1, 1, 0) 
 	inAir = true
 	jumps_available -= 1;
 }
@@ -122,7 +138,7 @@ if ( collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false ))
 		if (player_no != idd.player_no)
 		{
 			idd.vsp += second_jump_speed //mini jump after jumping on other player
-			audio_play_sound( asset_get_index("snd_jump_" + string(obj_system.player_jump_sounds[idd.player_no - 1])), 1, 0) 
+			audio_play_sound( snd_jump_1, 1, 0) 
 			audio_play_sound( snd_death, 1, 0)
 			inAir = true
 			
@@ -134,4 +150,21 @@ if ( collision_rectangle( x + 2, y - 2, x + 10, y, obj_player, true, false ))
 			instance_destroy()
 		}
 	}
+}
+
+if (hsp == 0 && vsp == 0)
+{
+	not_moved_timer += 60 * 0.01
+}
+else
+{
+	not_moved_timer = 0
+}
+
+if (not_moved_timer >= not_moved_limit_destroy)
+{
+	obj_system.player_lost_live[other.player_no - 1] = true;
+	not_moved_timer = 0
+	instance_destroy()
+	
 }
