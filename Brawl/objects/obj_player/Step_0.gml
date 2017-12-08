@@ -24,6 +24,14 @@ else
 	}
 	if (player_no == 3)
 	{
+		key_left = keyboard_check(vk_left)
+		key_right = keyboard_check(vk_right)
+		key_jump = keyboard_check_pressed(vk_up)
+		key_jump_rel = keyboard_check_released(vk_up)
+	}
+	/*
+	if (player_no == 3)
+	{
 		key_left = gamepad_axis_value(2, gp_axislh) < -game_pad_min_threshold
 		key_right = gamepad_axis_value(2, gp_axislh) > game_pad_min_threshold
 		key_jump = gamepad_button_check_pressed(2, gp_face1);
@@ -36,14 +44,9 @@ else
 		key_jump = gamepad_button_check_pressed(3, gp_face1);
 		key_jump_rel = gamepad_button_check_released(3, gp_face1);
 	}
+	*/
 	/*
-	if (player_no == 1)
-	{
-		key_left = keyboard_check(vk_left)
-		key_right = keyboard_check(vk_right)
-		key_jump = keyboard_check_pressed(vk_up)
-		key_jump_rel = keyboard_check_released(vk_up)
-	}
+	
 	if (player_no == 2)
 	{
 		key_left = keyboard_check(ord("A"))
