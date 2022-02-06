@@ -5,7 +5,7 @@ display_reset(8, true) //helps with AntiAliasing
 //MAIN VARIABLES
 number_of_hats = 10
 teams_count = 3
-player_per_team_count = 1
+player_per_team_count = 5
 team_lives = 25
 
 //MUSIC
